@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-include 'getEnvv.php';
+include 'loadToken.php';
 include 'api/mineApi.php';
 include 'api/imageApi.php';
 include 'database/setItem.php';
@@ -35,7 +35,7 @@ use Commands\ThrowCommand;
 use Commands\UpdatesCommand;
 
 $discord = new Discord([
-    'token' => getEnvv(),
+    'token' => loadToken(),
     'intents' => Intents::getDefaultIntents() | Intents::GUILD_MEMBERS,
 ]);
 

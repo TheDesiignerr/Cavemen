@@ -2,6 +2,8 @@
 
 namespace Commands;
 
+require_once 'database/getTotalUsers.php';
+
 use Discord\Parts\Channel\Message;
 use Discord\Parts\Embed\Embed;
 
@@ -32,7 +34,7 @@ class HelpCommand
         $message->channel->sendEmbed($embed);
     }
 
-    private function getHelpDescription($authorUsername)
+    public function getHelpDescription($authorUsername)
     {
         return "
         **:robot: ┆ Bot Prefix**
@@ -94,7 +96,15 @@ class HelpCommand
         **`Bot Language` PHP**
         **`Bot Version` v1.2**
         **`Bot Database` MySQL**
+        **`Current Users` {$this->loadUsers()}**
         *More Updates soon!*
         ";
+    }
+
+    public function loadUsers() 
+    {
+        
+        $userCount = \getTotalUsers(); // Use the global namespace
+        return $userCount;
     }
 }

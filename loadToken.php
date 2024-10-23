@@ -1,5 +1,5 @@
 <?php
 
-function getEnvv() {
+function loadToken() {
     return '';
 };

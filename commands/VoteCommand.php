@@ -15,7 +15,7 @@ class VoteCommand
 
     private function sendVoteLink(Message $message)
     {
-        $inviteLink = 'https://discord.com/oauth2/authorize?client_id=1296894207750967419&scope=bot&permissions=274878254080';
+        $inviteLink = "https://top.gg/bot/1296894207750967419#reviews \n https://discordbotlist.com/bots/cavemen/upvote";
         $message->channel->sendMessage($inviteLink);
     }
 }

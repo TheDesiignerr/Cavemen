@@ -3,6 +3,7 @@ namespace Commands;
 
 require_once 'api/mineApi.php';
 require_once 'database/setItem.php';
+require_once 'database/addUser.php';
 require_once 'package/setLog.php';
 
 use Discord\Parts\Channel\Message;
@@ -34,6 +35,7 @@ class MineCommand
         
         $itemName = $itemData['itemName'];
         setItem($authorUsername, $itemName); // Assume this function is defined elsewhere
+        addUser($authorUsername);
         setLog("Mine command", "{$authorUsername} Requested a mine item");
         return;
     }
